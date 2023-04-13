@@ -10,7 +10,8 @@ pipeline {
         stage("paso 1") {
             steps {
                 script {
-                    bat "cd C:/Users/alumno/Desktop/copia de seguridad && javac prueba.java"
+                    bat "cd C:/Users/alumno/Desktop/copia de seguridad"
+                    bat "javac prueba.java"
                 }
             }
         }
