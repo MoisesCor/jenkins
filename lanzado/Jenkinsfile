@@ -13,14 +13,18 @@ pipeline {
     stage("paso 1") {
       steps {
         script {			
-          bat "cd C:/Users/alumno/Desktop/copia de seguridad && javac prueba.java"
+          bat "cd C:/Users/alumno/Desktop/copia && javac prueba.java"
         }
       }
     }
     stage("paso 2") {
       steps {
         script {			
-          bat "java -classpath C:/Users/alumno/Desktop/copia de seguridad prueba"
+         def command = "javac C:/Users/alumno/Desktop/copia/prueba.java && java -cp C:/Users/alumno/Desktop/copia prueba"
+def process = command.execute()
+process.waitFor()
+println process.text
+
         }
       }
     }
