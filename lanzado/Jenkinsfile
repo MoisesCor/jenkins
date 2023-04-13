@@ -5,31 +5,33 @@ def jsonParse(def json) {
 }
 
 pipeline {
-    agent { label 'principal' }
-    stages {
-        stage("paso 1") {
-            steps {
-                script {
-                    bat "cd C:/Users/alumno/Desktop/copia de seguridad"
-                    bat "javac prueba.java"
-                }
-            }
+  agent { label 'principal' }
+  environment {
+    appName = "variable" 
+  }
+  stages {
+    stage("paso 1") {
+      steps {
+        script {			
+          bat "cd C:/Users/alumno/Desktop/copia de seguridad && javac prueba.java"
         }
-        stage("paso 2") {
-            steps {
-                script {
-                    javac "prueba.java"
-                }
-            }
-        }
-        stage("paso 3") {
-            steps {
-                script {
-                    echo "_____________________"
-                    echo "exitoso"
-                    echo "____________"
-                }
-            }
-        }
+      }
     }
+    stage("paso 2") {
+      steps {
+        script {			
+          bat "java -classpath C:/Users/alumno/Desktop/copia de seguridad prueba"
+        }
+      }
+    }
+    stage("paso 3") {
+      steps {
+        script {			
+          echo "_____________________"
+          echo "exitoso"
+          echo "____________"
+        }
+      }
+    }
+  }
 }
