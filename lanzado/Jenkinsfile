@@ -20,11 +20,10 @@ pipeline {
     stage("paso 2") {
       steps {
         script {			
-         def command = "javac C:/Users/alumno/Desktop/copia/prueba.java && java -cp C:/Users/alumno/Desktop/copia prueba"
-def process = command.execute()
-process.waitFor()
-println process.text
-
+          def command = "java -cp C:/Users/alumno/Desktop/copia prueba"
+          def process = command.execute()
+          process.waitFor()
+          println process.text
         }
       }
     }
@@ -33,9 +32,10 @@ println process.text
         script {			
           echo "_____________________"
           echo "exitoso"
-          echo "____________"
+          echo "_____________________"
         }
       }
     }
   }
 }
+
