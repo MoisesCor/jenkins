@@ -14,7 +14,7 @@ pipeline {
      
       steps {
           script {			
-          cd C:/Users/alumno/Desktop/copia de seguridad
+          bat  "C:/Users/alumno/Desktop/copia de seguridad"
                 javac prueba.java
         }
       }
